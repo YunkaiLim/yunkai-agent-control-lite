@@ -51,12 +51,10 @@ Do not ask “do you like it?” as the primary question.
 
 Do not build all five before users reveal which one matters.
 
-## External accounts still needed
+## Current conversion path
 
-The code intentionally leaves these URLs blank:
+- Early Access interest: connected to a public GitHub issue form.
+- Product feedback: connected to a public GitHub issue form.
+- Checkout: intentionally still blank until the owner completes the payment-provider account/KYC step.
 
-- waitlist
-- checkout
-- feedback form
-
-Connect them only after the owner creates/chooses the corresponding accounts.
+Public forms warn testers not to paste credentials, private prompts, project contents, or other secrets.
