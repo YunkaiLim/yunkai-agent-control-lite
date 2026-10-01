@@ -1,0 +1,39 @@
+name: Product Feedback
+description: Report confusing behavior, missing status, or a feature you actually needed.
+title: "[feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not include credentials, API keys, private prompts, project contents, or other secrets.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Installation / startup
+        - Agent or CLI detection
+        - Ollama status
+        - Privacy / trust boundary
+        - UI / wording
+        - Early Access feature request
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What were you trying to learn or do?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Optional non-sensitive context
+      description: OS version and which tools you use are useful. Do not paste secrets or private project content.
