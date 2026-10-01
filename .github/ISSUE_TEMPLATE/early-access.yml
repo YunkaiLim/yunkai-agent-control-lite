@@ -1,0 +1,51 @@
+name: Early Access Interest
+description: Tell us what you run locally and what would make Agent Control Lite worth keeping.
+title: "[Early access] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing Yunkai Agent Control Lite. Please do not paste API keys, tokens, private prompts, project contents, or credentials here.
+  - type: checkboxes
+    id: stack
+    attributes:
+      label: Your local AI stack
+      description: Select everything you actively use.
+      options:
+        - label: Codex
+        - label: Claude Code
+        - label: Gemini CLI
+        - label: Ollama / local models
+        - label: MCP servers / tools
+        - label: Other local AI developer tools
+  - type: dropdown
+    id: pain
+    attributes:
+      label: What would save you the most time?
+      options:
+        - MCP server inventory
+        - Provider/model connection overview
+        - Permission and Human Gate visibility
+        - Reviewed start/stop/restart controls
+        - Diagnostics and status export
+        - Team policy export
+        - Something else
+    validations:
+      required: true
+  - type: dropdown
+    id: price
+    attributes:
+      label: Would US$29 lifetime feel reasonable for the useful paid version?
+      options:
+        - "Yes"
+        - "Maybe"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What would make you keep it installed?
+      placeholder: The specific thing you would come back for...
+    validations:
+      required: true
