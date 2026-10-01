@@ -1,0 +1,14 @@
+{
+  "name": "yunkai-agent-control-lite",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Read-only local dashboard for AI developer tools and local model runtimes.",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}
