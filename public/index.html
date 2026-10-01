@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A local-only dashboard for AI coding agents, CLIs, local model runtimes, and permission boundaries.">
+  <title>Yunkai Agent Control Lite</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./market-config.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Yunkai Agent Control Lite home">
+      <span class="brand-mark">Y</span>
+      <span><strong>Yunkai</strong><small>AGENT CONTROL LITE</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#live">Live status</a>
+      <a href="#security">Security</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <button class="button ghost" id="join-header">Join early access</button>
+  </header>
+
+  <main id="top">
+    <section class="hero landing-shell">
+      <div class="hero-copy">
+        <span class="eyebrow">LOCAL-FIRST DEVELOPER CONTROL PLANE</span>
+        <h1>Your AI tools are everywhere.<br>See them in one place.</h1>
+        <p class="hero-lead">A tiny local dashboard for Codex, Claude Code, Gemini CLI, Ollama, and the trust boundaries around them. No project upload. No credential scraping. No cloud agent required.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#live">Open live local view</a>
+          <button class="button secondary" id="join-hero">Join early access</button>
+        </div>
+        <div class="proof-strip" aria-label="Product boundaries">
+          <span>127.0.0.1 only</span>
+          <span>No telemetry</span>
+          <span>No secrets read</span>
+          <span>Read-only v0.1</span>
+        </div>
+      </div>
+      <div class="hero-preview" aria-hidden="true">
+        <div class="mini-window">
+          <div class="mini-top"><span></span><span></span><span></span></div>
+          <div class="mini-grid">
+            <div class="mini-card"><b>Codex</b><i class="dot good"></i><small>RUNNING</small></div>
+            <div class="mini-card"><b>Claude Code</b><i class="dot"></i><small>INSTALLED</small></div>
+            <div class="mini-card"><b>Gemini CLI</b><i class="dot"></i><small>INSTALLED</small></div>
+            <div class="mini-card"><b>Ollama</b><i class="dot good"></i><small>READY · 6 models</small></div>
+          </div>
+          <div class="mini-gate"><span>Permission boundary</span><b>READ ONLY</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="live" class="section-shell live-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">LOCAL OBSERVATION</span>
+          <h2>What is actually available on this machine?</h2>
+          <p>Live probes report installation and process presence only. They do not claim authentication, task success, or tool authorization.</p>
+        </div>
+        <div class="live-actions">
+          <span id="source-badge" class="badge neutral">LOADING</span>
+          <button class="button secondary" id="refresh-status">Refresh</button>
+          <button class="button secondary" id="export-status">Export sanitized summary</button>
+        </div>
+      </div>
+
+      <div id="agent-grid" class="agent-grid" aria-live="polite"></div>
+
+      <div class="two-column">
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">LOCAL MODEL RUNTIME</span>
+              <h3>Ollama</h3>
+            </div>
+            <span id="ollama-state" class="status neutral">UNKNOWN</span>
+          </div>
+          <div class="facts">
+            <div><span>API</span><strong id="ollama-api">UNKNOWN</strong></div>
+            <div><span>Model count</span><strong id="ollama-models">—</strong></div>
+            <div><span>Endpoint</span><strong>127.0.0.1:11434</strong></div>
+          </div>
+          <p class="subtle">Only the local tags endpoint is probed. Model names are not exported by this Lite dashboard.</p>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">TRUST BOUNDARY</span>
+              <h3>What this build refuses to do</h3>
+            </div>
+            <span class="status good">ENFORCED</span>
+          </div>
+          <ul class="boundary-list">
+            <li><span class="check">✓</span><span>No start / stop / restart controls</span></li>
+            <li><span class="check">✓</span><span>No process command-line inspection</span></li>
+            <li><span class="check">✓</span><span>No project, prompt, transcript, or credential reads</span></li>
+            <li><span class="check">✓</span><span>No MCP config or secret discovery in v0.1</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div id="status-note" class="notice"></div>
+    </section>
+
+    <section class="section-shell feature-section">
+      <div class="section-heading compact">
+        <div>
+          <span class="eyebrow">THE PRODUCT THESIS</span>
+          <h2>One calm surface for a messy local AI stack.</h2>
+        </div>
+      </div>
+      <div class="feature-grid">
+        <article><span class="feature-index">01</span><h3>Agent presence</h3><p>Know which developer CLIs are installed and which uniquely identifiable local processes are running.</p></article>
+        <article><span class="feature-index">02</span><h3>Local runtimes</h3><p>Check local model services without opening three terminals or exposing model inventory to a cloud dashboard.</p></article>
+        <article><span class="feature-index">03</span><h3>Trust, not vibes</h3><p>Separate “process exists” from “authenticated”, “authorized”, and “task accepted”. No fake green READY light.</p></article>
+        <article><span class="feature-index">04</span><h3>Grow only when earned</h3><p>MCP inventory, provider management, and gated lifecycle actions stay out until users prove they want them.</p></article>
+      </div>
+    </section>
+
+    <section id="security" class="section-shell security-section">
+      <div class="security-copy">
+        <span class="eyebrow">PRIVACY AS A FEATURE</span>
+        <h2>Local-first is not a checkbox here.</h2>
+        <p>The first market build binds to loopback, serves no remote API, sends no telemetry, and has no browser-exposed write endpoint. It intentionally observes less than the internal Yunkai Control Center.</p>
+      </div>
+      <div class="trust-grid">
+        <div><span>Network bind</span><strong>127.0.0.1</strong></div>
+        <div><span>Telemetry</span><strong>OFF</strong></div>
+        <div><span>Write actions</span><strong>NONE</strong></div>
+        <div><span>Credential reads</span><strong>NONE</strong></div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section-shell pricing-section">
+      <div class="section-heading compact">
+        <div>
+          <span class="eyebrow">EARLY MARKET TEST</span>
+          <h2>Simple enough to say no to.</h2>
+          <p>If developers will not pay for the small useful thing, we do not bury the signal under fifty more features.</p>
+        </div>
+      </div>
+      <div class="pricing-grid">
+        <article class="price-card">
+          <span class="price-tag">Preview</span>
+          <h3>Local Read-Only</h3>
+          <div class="price">$0</div>
+          <p>Current v0.1 market build.</p>
+          <ul><li>Agent/CLI presence</li><li>Ollama health</li><li>Sanitized export</li><li>No telemetry</li></ul>
+          <a class="button secondary full" href="#live">Use local preview</a>
+        </article>
+        <article class="price-card featured">
+          <span class="price-tag">Founding users</span>
+          <h3>Early Access</h3>
+          <div class="price">$<span id="early-price">29</span><small> lifetime</small></div>
+          <p>Price hypothesis, not an active checkout yet.</p>
+          <ul><li>MCP inventory when validated</li><li>Provider overview</li><li>Permission-gate visibility</li><li>Early feature votes</li></ul>
+          <button class="button primary full" id="buy-early">Join early access</button>
+        </article>
+      </div>
+      <p id="cta-status" class="cta-status" role="status"></p>
+    </section>
+
+    <section class="section-shell final-cta">
+      <span class="eyebrow">BUILD LESS. LEARN FASTER.</span>
+      <h2>Would this save you enough terminal-hopping to keep it installed?</h2>
+      <p>That is the only question v0.1 needs to answer.</p>
+      <div class="hero-actions centered">
+        <button class="button primary" id="join-bottom">Join the first test group</button>
+        <button class="button secondary" id="feedback">Send product feedback</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Yunkai Agent Control Lite · market-test build</span>
+    <span>Local-only by default · no telemetry</span>
+  </footer>
+</body>
+</html>
